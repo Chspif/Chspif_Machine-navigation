@@ -5,6 +5,18 @@ UnminedCustomMarkers = {
     markers: [
 
         {
+            x: -436,
+            z: 0,
+            image: "custom.pin.png",
+            imageAnchor: [0.5, 1],
+            imageScale: 0.5,
+            text: "村民交易所",
+            textColor: "purple",
+            offsetX: 0,
+            offsetY: 20,
+            font: "bold 16px Arial",
+        },
+        {
             x: -150,
             z: -460,
             image: "custom.pin.png",
@@ -35,6 +47,18 @@ UnminedCustomMarkers = {
             imageAnchor: [0.5, 1],
             imageScale: 0.5,
             text: "凋灵玫瑰农场",
+            textColor: "purple",
+            offsetX: 0,
+            offsetY: 20,
+            font: "bold 16px Arial",
+        },
+        {
+            x: 5,
+            z: 237,
+            image: "custom.pin.png",
+            imageAnchor: [0.5, 1],
+            imageScale: 0.5,
+            text: "小黑塔",
             textColor: "purple",
             offsetX: 0,
             offsetY: 20,
