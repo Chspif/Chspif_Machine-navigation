@@ -1,0 +1,303 @@
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;    
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;    
+    font-size: 16px;
+    overflow: hidden;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+    image-rendering: pixelated;
+}
+
+.mouseposition {
+    background-color: white;
+    padding: 3px;
+    text-align: right;
+}
+
+.mousepositioncoord {
+    min-width: 40px;
+    display: inline-block;
+}
+
+div.ol-mouse-position {
+    background-color: white;
+    padding: 6px;
+    border-radius: 3px;
+    box-shadow: 3px 3px 2px rgba(0, 0, 0, 0.2);
+}
+
+.ol-ctx-menu-container {
+    font-size: 16px;
+}
+
+.ol-scale-step-text {
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    text-shadow:
+        1px 0 0 black,
+        0 1px 0 black,
+        -1px 0 0 black,
+        0 -1px 0 black;
+    0px 0px 8px black;
+}
+
+.ol-scale-singlebar-odd {
+    background: #ddd;
+}
+
+.ol-scale-singlebar-even {
+    background: #444;
+}
+
+.toastify {
+    color: black;
+    background: yellow;
+}
+
+.ol-ctx-menu-container li {
+    padding-left: 20px;
+}
+
+.menuitem-checked::before {
+    content: '☑';
+    width: 20px;
+    display: inline-block;
+    margin-left: -20px;
+}
+
+.menuitem-unchecked::before {
+    content: '☐';
+    width: 20px;
+    display: inline-block;
+    margin-left: -20px;
+}
+
+/* 侧边栏样式 */
+#sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 280px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    transition: left 0.3s ease;
+    overflow-y: auto;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background-color: #333;
+    color: white;
+}
+
+.sidebar-header h2 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.toggle-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.sidebar-content {
+    padding: 20px;
+}
+
+.search-container {
+    margin-bottom: 20px;
+}
+
+#marker-search {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.markers-list-container h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 16px;
+    color: #333;
+}
+
+#markers-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.marker-item {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.marker-item:hover {
+    background-color: #f5f5f5;
+}
+
+.marker-name {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 4px;
+}
+
+.marker-coords {
+    font-size: 12px;
+    color: #666;
+}
+
+.no-markers {
+    padding: 20px;
+    text-align: center;
+    color: #999;
+    font-style: italic;
+}
+
+/* 侧边栏打开按钮 */
+.open-btn {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(51, 51, 51, 0.9);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: left 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.open-btn:hover {
+    background-color: rgba(51, 51, 51, 1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 250px;
+    }
+    
+    .open-btn {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+    
+    .sidebar-content {
+        padding: 15px;
+    }
+}
+
+/* 世界切换按钮 */
+.dimension-switcher {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.dimension-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 80px;
+    color: white;
+}
+
+.dimension-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-3px);
+}
+
+.dimension-btn.active {
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+.dimension-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+.dimension-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #9b59b6; /* 紫色文字 */
+}
+
+/* 世界切换按钮响应式设计 */
+@media (max-width: 768px) {
+    .dimension-switcher {
+        bottom: 15px;
+        right: 15px;
+        padding: 8px;
+        gap: 8px;
+    }
+    
+    .dimension-btn {
+        min-width: 70px;
+        padding: 8px;
+    }
+    
+    .dimension-icon {
+        font-size: 20px;
+    }
+    
+    .dimension-label {
+        font-size: 11px;
+    }
+}
