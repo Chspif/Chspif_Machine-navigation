@@ -4,14 +4,13 @@ UnminedCustomMarkers = {
 
     markers: [
 
-        // Example 1: Simple marker
         {
             x: 1467,
             z: 1961,
             image: "custom.pin.png",
             imageAnchor: [0.5, 1],
             imageScale: 0.5,
-            text: "四联刷铁机",
+            text: "十六联刷铁机",
             textColor: "purple",
             offsetX: 0,
             offsetY: 20,
@@ -48,6 +47,18 @@ UnminedCustomMarkers = {
             imageAnchor: [0.5, 1],
             imageScale: 0.5,
             text: "8*刷沙机",
+            textColor: "purple",
+            offsetX: 0,
+            offsetY: 20,
+            font: "bold 16px Arial",
+        },
+        {
+            x: 1600,
+            z: 1928,
+            image: "custom.pin.png",
+            imageAnchor: [0.5, 1],
+            imageScale: 0.5,
+            text: "黑曜石机",
             textColor: "purple",
             offsetX: 0,
             offsetY: 20,
