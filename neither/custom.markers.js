@@ -160,7 +160,7 @@ UnminedCustomMarkers = {
             font: "bold 16px Arial",
         },
         {
-            x: 839,
+            x: -839,
             z: 818,
             image: "custom.pin.png",
             imageAnchor: [0.5, 1],

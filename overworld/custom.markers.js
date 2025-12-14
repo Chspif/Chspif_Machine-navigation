@@ -77,6 +77,18 @@ UnminedCustomMarkers = {
             font: "bold 16px Arial",
         },
         {
+            x: 151,
+            z: -543,
+            image: "custom.pin.png",
+            imageAnchor: [0.5, 1],
+            imageScale: 0.5,
+            text: "128熔炉组",
+            textColor: "purple",
+            offsetX: 0,
+            offsetY: 20,
+            font: "bold 16px Arial",
+        },
+        {
             x: -4727,
             z: 5002,
             image: "custom.pin.png",
