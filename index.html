@@ -3,13 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>游戏地图导航</title>
-    <script>
-        // 页面加载后自动重定向到主世界地图
-        window.onload = function() {
-            window.location.href = 'overworld/index.html';
-        };
-    </script>
-  
+    <title>机器位置查询 - Chspif Map</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- 页面标题 -->
+        <header class="header">
+            <h1>机器位置查询</h1>
+        </header>
 
+        <!-- 主内容区域 -->
+        <main class="main-content">
+            <!-- 左侧物品列表 -->
+            <section class="item-list">
+                <h2>物品列表</h2>
+                <div class="items-container" id="itemsContainer">
+                    <!-- 物品将通过JavaScript动态生成 -->
+                </div>
+            </section>
+
+            <!-- 右侧详情面板 -->
+            <section class="item-details">
+                <h2>机器位置</h2>
+                <div class="details-content" id="detailsContent">
+                    <div class="empty-state">
+                        <p>点击左侧的物品查看机器位置</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
