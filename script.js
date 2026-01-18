@@ -6,7 +6,7 @@ const itemsData = [
         icon: "💎",
         locations: [
             {
-                name: "钻石矿洞",
+                name: "钻石",
                 x: 123,
                 y: 15,
                 z: -456,
