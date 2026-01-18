@@ -52,6 +52,14 @@ const itemsData = [
                 jumpUrl: "https://map.example.com/?x=-123&y=90&z=-789&dim=end"
             },
             {
+                name: "小黑塔",
+                x: -123,
+                y: 90,
+                z: -789,
+                dimension: "end",
+                jumpUrl: ""
+            },
+            {
                 name: "末影人农场",
                 x: 789,
                 y: 120,
@@ -159,28 +167,28 @@ function init() {
 // 生成物品列表
 function generateItemsList() {
     itemsContainer.innerHTML = '';
-    
+
     itemsData.forEach(item => {
         const itemCard = document.createElement('div');
         itemCard.className = 'item-card';
         itemCard.dataset.itemId = item.id;
-        
+
         itemCard.innerHTML = `
             <div class="item-icon">${item.icon}</div>
             <div class="item-name">${item.name}</div>
         `;
-        
+
         // 添加点击事件
         itemCard.addEventListener('click', () => {
             showItemDetails(item);
-            
+
             // 更新选中状态
             document.querySelectorAll('.item-card').forEach(card => {
                 card.classList.remove('active');
             });
             itemCard.classList.add('active');
         });
-        
+
         itemsContainer.appendChild(itemCard);
     });
 }
@@ -188,7 +196,7 @@ function generateItemsList() {
 // 显示物品详情
 function showItemDetails(item) {
     let locationsHtml = '';
-    
+
     item.locations.forEach((location, index) => {
         // 维度显示名称
         const dimensionNames = {
@@ -196,7 +204,7 @@ function showItemDetails(item) {
             'nether': '下界',
             'end': '末地'
         };
-        
+
         locationsHtml += `
             <div class="location-card">
                 <div class="location-title">位置 ${index + 1}: ${location.name}</div>
@@ -216,7 +224,7 @@ function showItemDetails(item) {
             </div>
         `;
     });
-    
+
     detailsContent.innerHTML = `
         <div class="item-info active">
             <div class="info-header">
