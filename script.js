@@ -212,7 +212,7 @@ function showItemDetails(item) {
                         </div>
                     </div>
                 </div>
-                <a href="${location.jumpUrl}" class="jump-button" target="_blank">原型连接</a>
+                <a href="${location.jumpUrl}" class="jump-button" target="_blank">原型链接</a>
             </div>
         `;
     });
