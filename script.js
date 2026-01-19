@@ -1,154 +1,15 @@
 // 物品数据结构定义
 const itemsData = [
     {
-        id: 1,
-        name: "钻石",
+        name: "全物品",
         icon: "💎",
         locations: [
             {
-                name: "钻石",
-                x: 123,
+                name: "全物品",
+                x: 100,
                 y: 15,
-                z: -456,
-                dimension: "overworld",
-                jumpUrl: "https://map.example.com/?x=123&y=15&z=-456"
-            },
-            {
-                name: "废弃矿井",
-                x: -789,
-                y: 22,
-                z: 321,
-                dimension: "overworld",
-                jumpUrl: "https://map.example.com/?x=-789&y=22&z=321"
-            }
-        ]
-    },
-    {
-        id: 2,
-        name: "下界合金锭",
-        icon: "⚒️",
-        locations: [
-            {
-                name: "下界堡垒",
-                x: 456,
-                y: 65,
-                z: 789,
-                dimension: "nether",
-                jumpUrl: "https://map.example.com/?x=456&y=65&z=789&dim=nether"
-            }
-        ]
-    },
-    {
-        id: 3,
-        name: "末影珍珠",
-        icon: "🌀",
-        locations: [
-            {
-                name: "末地城",
-                x: -123,
-                y: 90,
-                z: -789,
-                dimension: "end",
-                jumpUrl: "https://map.example.com/?x=-123&y=90&z=-789&dim=end"
-            },
-            {
-                name: "小黑塔",
-                x: -123,
-                y: 90,
-                z: -789,
-                dimension: "end",
-                jumpUrl: ""
-            },
-            {
-                name: "末影人农场",
-                x: 789,
-                y: 120,
-                z: 456,
-                dimension: "overworld",
-                jumpUrl: "https://map.example.com/?x=789&y=120&z=456"
-            }
-        ]
-    },
-    {
-        id: 4,
-        name: "附魔金苹果",
-        icon: "🍎",
-        locations: [
-            {
-                name: "末地船",
-                x: 321,
-                y: 95,
-                z: -321,
-                dimension: "end",
-                jumpUrl: "https://map.example.com/?x=321&y=95&z=-321&dim=end"
-            }
-        ]
-    },
-    {
-        id: 5,
-        name: "龙蛋",
-        icon: "🐉",
-        locations: [
-            {
-                name: "末地折跃门",
-                x: 0,
-                y: 60,
                 z: 0,
-                dimension: "end",
-                jumpUrl: "https://map.example.com/?x=0&y=60&z=0&dim=end"
-            }
-        ]
-    },
-    {
-        id: 6,
-        name: "海晶灯",
-        icon: "💡",
-        locations: [
-            {
-                name: "海底神殿",
-                x: -456,
-                y: 32,
-                z: 123,
-                dimension: "overworld",
-                jumpUrl: "https://map.example.com/?x=-456&y=32&z=123"
-            }
-        ]
-    },
-    {
-        id: 7,
-        name: "鞘翅",
-        icon: "🦋",
-        locations: [
-            {
-                name: "末地船",
-                x: 654,
-                y: 92,
-                z: -654,
-                dimension: "end",
-                jumpUrl: "https://map.example.com/?x=654&y=92&z=-654&dim=end"
-            }
-        ]
-    },
-    {
-        id: 8,
-        name: "远古残骸",
-        icon: "⛏️",
-        locations: [
-            {
-                name: "下界熔岩湖",
-                x: 789,
-                y: 15,
-                z: -123,
-                dimension: "nether",
-                jumpUrl: "https://map.example.com/?x=789&y=15&z=-123&dim=nether"
-            },
-            {
-                name: "下界堡垒附近",
-                x: -321,
-                y: 20,
-                z: 456,
-                dimension: "nether",
-                jumpUrl: "https://map.example.com/?x=-321&y=20&z=456&dim=nether"
+                dimension: "end"
             }
         ]
     }
@@ -167,28 +28,28 @@ function init() {
 // 生成物品列表
 function generateItemsList() {
     itemsContainer.innerHTML = '';
-
-    itemsData.forEach(item => {
+    
+    itemsData.forEach((item, index) => {
         const itemCard = document.createElement('div');
         itemCard.className = 'item-card';
-        itemCard.dataset.itemId = item.id;
-
+        itemCard.dataset.itemIndex = index;
+        
         itemCard.innerHTML = `
             <div class="item-icon">${item.icon}</div>
             <div class="item-name">${item.name}</div>
         `;
-
+        
         // 添加点击事件
         itemCard.addEventListener('click', () => {
             showItemDetails(item);
-
+            
             // 更新选中状态
             document.querySelectorAll('.item-card').forEach(card => {
                 card.classList.remove('active');
             });
             itemCard.classList.add('active');
         });
-
+        
         itemsContainer.appendChild(itemCard);
     });
 }
@@ -196,7 +57,7 @@ function generateItemsList() {
 // 显示物品详情
 function showItemDetails(item) {
     let locationsHtml = '';
-
+    
     item.locations.forEach((location, index) => {
         // 维度显示名称
         const dimensionNames = {
@@ -204,7 +65,13 @@ function showItemDetails(item) {
             'nether': '下界',
             'end': '末地'
         };
-
+        
+        // 根据维度获取文件夹名称（处理下界文件夹名称的特殊情况）
+        const dimensionFolder = location.dimension === 'nether' ? 'nerther' : location.dimension;
+        
+        // 自动生成跳转链接
+        const jumpUrl = `./${dimensionFolder}/index.html?x=${location.x}&z=${location.z}`;
+        
         locationsHtml += `
             <div class="location-card">
                 <div class="location-title">位置 ${index + 1}: ${location.name}</div>
@@ -220,11 +87,11 @@ function showItemDetails(item) {
                         </div>
                     </div>
                 </div>
-                <a href="${location.jumpUrl}" class="jump-button" target="_blank">原型链接</a>
+                <a href="${jumpUrl}" class="jump-button">查看地图</a>
             </div>
         `;
     });
-
+    
     detailsContent.innerHTML = `
         <div class="item-info active">
             <div class="info-header">
@@ -247,10 +114,9 @@ function addCustomItem(itemData) {
 }
 
 // 允许用户删除物品的函数（示例）
-function removeItem(itemId) {
-    const index = itemsData.findIndex(item => item.id === itemId);
-    if (index !== -1) {
-        itemsData.splice(index, 1);
+function removeItem(itemIndex) {
+    if (itemIndex >= 0 && itemIndex < itemsData.length) {
+        itemsData.splice(itemIndex, 1);
         generateItemsList();
         // 清空详情面板
         detailsContent.innerHTML = `
@@ -262,15 +128,14 @@ function removeItem(itemId) {
 }
 
 // 允许用户更新物品的函数（示例）
-function updateItem(itemId, updatedData) {
-    const index = itemsData.findIndex(item => item.id === itemId);
-    if (index !== -1) {
-        itemsData[index] = { ...itemsData[index], ...updatedData };
+function updateItem(itemIndex, updatedData) {
+    if (itemIndex >= 0 && itemIndex < itemsData.length) {
+        itemsData[itemIndex] = { ...itemsData[itemIndex], ...updatedData };
         generateItemsList();
         // 如果当前显示的是更新的物品，重新显示详情
         const activeCard = document.querySelector(`.item-card.active`);
-        if (activeCard && parseInt(activeCard.dataset.itemId) === itemId) {
-            showItemDetails(itemsData[index]);
+        if (activeCard && parseInt(activeCard.dataset.itemIndex) === itemIndex) {
+            showItemDetails(itemsData[itemIndex]);
         }
     }
 }
