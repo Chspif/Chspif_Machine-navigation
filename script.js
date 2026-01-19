@@ -2,17 +2,390 @@
 const itemsData = [
     {
         name: "全物品",
-        icon: "💎",
+        icon: "",
         locations: [
             {
                 name: "全物品",
-                x: 100,
-                y: 15,
-                z: 0,
+                x: 90,
+                y: 49,
+                z: 2,
                 dimension: "end"
+            },
+
+            
+        ]
+    },
+    {
+        name: "煤炭",
+        icon: "",
+        locations: [
+            {
+                name: "煤炭",
+                x: -123,
+                y: 180,
+                z: 76,
+                dimension: "nether"
+            },
+
+            
+        ]
+    },
+    {
+        name: "金锭与猪灵交易所",
+        icon: "",
+        locations: [
+            {
+                name: "80w猪人塔",
+                x: 446,
+                y: 138,
+                z: 319,
+                dimension: "nether",
+               
+            },
+            {
+                name: "小小猪人塔",
+                x: 137,
+                y: 244,
+                z: 307,
+                dimension: "nether",
+               
+            },
+            {
+                name: "大叔猪人塔",
+                x: -822,
+                y: 128,
+                z: 761,
+                dimension: "nether",
+                
+            },
+            {
+                name: "猪灵交易",
+                x: 446,
+                y: 138,
+                z: 319,
+                dimension: "nether",
+                
             }
         ]
+    },
+    {
+       
+        name: "食物",
+        icon: "",
+        locations: [
+            {
+                name: "猪肉农场",
+                x: -581,
+                y: 128,
+                z: 791,
+                dimension: "nether",
+                
+            }
+    
+        ]
+    },
+    {
+        
+        name: "冰",
+        icon: "",
+        locations: [
+            {
+                name: "刷冰机",
+                x: -128,
+                y: 128,
+                z: -55,
+                dimension: "nether",
+              
+            }
+        ]
+    },
+    {
+        
+        name: "重力方块",
+        icon: "",
+        locations: [
+            {
+                name: "刷沙机",
+                x: 133,
+                y: 128,
+                z: 222,
+                dimension: "nether",
+                
+            }
+        ]
+    },
+    {
+        
+        name: "海晶灯，海晶石",
+        icon: "💡",
+        locations: [
+            {
+                name: "鱼塔",
+                x: -571,
+                y: 128,
+                z: 611,
+                dimension: "nether",
+                
+            }
+        ]
+    },
+    {
+        
+        name: "火药/绿宝石/不死图腾/红石/粘液块",
+        icon: "",
+        locations: [
+            {
+                name: "掠夺塔",
+                x: -591,
+                y: 128,
+                z: 622,
+                dimension: "nether",
+               
+            },
+               {
+                name: "沼泽刷怪塔1",
+                x: -754,
+                y: 128,
+                z: 595,
+                dimension: "nether",
+               
+            },
+               {
+                name: "沼泽刷怪塔2",
+                x: 770,
+                y: 128,
+                z: 425,
+                dimension: "nether",
+               
+            }
+        ]
+    },
+    {
+        
+        name: "骨块",
+        icon: "",
+        locations: [
+            {
+                name: "船吸刷怪塔",
+                x: 564,
+                y: 128,
+                z: 8,
+                dimension: "nether",
+            
+            },
+            {
+                name:"凋零骷髅塔",
+                x: -123,
+                y: 180,
+                z: 76,
+                dimension: "nether",
+            }
+        ]
+    },
+    {
+        
+        name: "下届之星",
+        icon: "",
+        locations: [
+            {
+                name: "杀凋机",
+                x: -99,
+                y: 123,
+                z: 22,
+                dimension: "nether",
+            
+            }
+           
+        ]
+    },
+     {
+        
+        name: "蛙鸣灯",
+        icon: "",
+        locations: [
+            {
+                name: "蛙鸣灯农场",
+                x: -12,
+                y: 128,
+                z: -142,
+                dimension: "nether",
+            
+            }
+        ]
+    },
+    {
+        
+        name: "岩浆膏",
+        icon: "",
+        locations: [
+            {
+                name: "岩浆膏农场",
+                x: -749,
+                y: 128,
+                z: 282,
+                dimension: "nether",
+            
+            }
+            
+        ]
+    },
+    {
+        
+        name: "伪和平",
+        icon: "",
+        locations: [
+            {
+                name: "主世界伪和平",
+                x: -1292,
+                y: 128,
+                z: 562,
+                dimension: "nether",
+            
+            },
+            {
+                name:"下界伪和平",
+                x: "?",
+                y: "?",
+                z: "?",
+                dimension: "nether",
+            }
+        ]
+    },
+    {
+        
+        name: "唱片",
+        icon: "",
+        locations: [
+            {
+                name: "唱片农场",
+                x: 20,
+                y: 128,
+                z: -594,
+                dimension: "nether",
+            
+            }
+           
+        ]
+    },
+     {
+        
+        name: "木头/石头",
+        icon: "",
+        locations: [
+            {
+                name: "树场",
+                x: -111,
+                y: 66,
+                z: -419,
+                dimension: "end",
+            
+            },
+            {
+                name:"刷石机",
+                x: -111,
+                y: 66,
+                z: -419,
+                dimension: "end",
+            }
+        ]
+    },
+    {
+        
+        name: "熔炉",
+        icon: "",
+        locations: [
+            {
+                name: "320熔炉组",
+                x: 76,
+                y: 149,
+                z: -231,
+                dimension: "end",
+            
+            },
+            {
+                name:"凋零骷髅塔",
+                x: -123,
+                y: 180,
+                z: 76,
+                dimension: "end",
+            }
+        ]
+    },
+     {
+        
+        name: "凋零玫瑰",
+        icon: "",
+        locations: [
+            {
+                name: "凋零玫瑰农场",
+                x: 587,
+                y: 59,
+                z: 789,
+                dimension: "end",
+            
+            }
+           
+        ]
+    },
+    {
+        
+        name: "装备/潜影壳",
+        icon: "",
+        locations: [
+            {
+                name: "村民交易",
+                x: -477,
+                y: 57,
+                z: 0,
+                dimension: "end",
+            
+            },
+            {
+                name: "贝厂",
+                x: -435,
+                y: 159,
+                z: -883,
+                dimension: "end",
+            
+            }
+          
+        ]
+    },
+    {
+        
+        name: "山羊角",
+        icon: "",
+        locations: [
+            {
+                name: "山羊角农场",
+                x: -138,
+                y: 66,
+                z: -580,
+                dimension: "end",
+            
+            },
+          
+          
+        ]
+    },
+       {
+        
+        name: "花",
+        icon: "",
+        locations: [
+            {
+                name: "全花种刷花机",
+                x: 3047,
+                y: 127,
+                z: 4520,
+                dimension: "overworld",
+            
+            }
+          
+          
+        ]
     }
+
 ];
 
 // DOM元素引用
