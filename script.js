@@ -301,14 +301,8 @@ const itemsData = [
                 z: -231,
                 dimension: "end",
             
-            },
-            {
-                name:"凋零骷髅塔",
-                x: -123,
-                y: 180,
-                z: 76,
-                dimension: "end",
             }
+           
         ]
     },
      {
