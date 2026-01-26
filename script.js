@@ -244,9 +244,9 @@ const itemsData = [
             },
             {
                 name:"下界伪和平",
-                x: "?",
+                x: "1402",
                 y: "?",
-                z: "?",
+                z: "1815",
                 dimension: "nether",
             }
         ]
@@ -286,6 +286,13 @@ const itemsData = [
                 y: 66,
                 z: -419,
                 dimension: "end",
+            },
+            {
+                name:"石材工厂/熔炉组",
+                x: -162,
+                y: 75,
+                z: 51,
+                dimension: "end",
             }
         ]
     },
@@ -295,10 +302,10 @@ const itemsData = [
         icon: "",
         locations: [
             {
-                name: "320熔炉组",
-                x: 76,
-                y: 149,
-                z: -231,
+                name: "石材工厂/熔炉组",
+                x: -162,
+                y: 75,
+                z: 51,
                 dimension: "end",
             
             }
@@ -375,6 +382,102 @@ const itemsData = [
                 dimension: "overworld",
             
             }
+          
+          
+        ]
+    },
+    {
+        
+        name: "黑曜石",
+        icon: "",
+        locations: [
+            {
+                name: "黑曜石机",
+                x: 1591,
+                y: 70,
+                z: 1930,
+                dimension: "overworld",
+            
+            }
+          
+          
+        ]
+    },
+    {
+        
+        name: "经验",
+        icon: "",
+        locations: [
+            {
+                name: "小黑塔",
+                x: -240,
+                y: 49,
+                z: 152,
+                dimension: "end",
+            
+            },
+            {
+                name: "经验瓶农场",
+                x: -1062,
+                y: 122,
+                z: -454,
+                dimension: "overworld",
+            
+            }
+          
+          
+        ]
+    },
+    {
+        
+        name: "蘑菇",
+        icon: "",
+        locations: [
+            {
+                name: "蘑菇机",
+                x: 61,
+                y: 53,
+                z: 156,
+                dimension: "end",
+            
+            },
+           
+          
+          
+        ]
+    },
+    {
+        
+        name: "药水",
+        icon: "",
+        locations: [
+            {
+                name: "药水机",
+                x: 77,
+                y: 50,
+                z: 162,
+                dimension: "end",
+            
+            },
+           
+          
+          
+        ]
+    },
+    {
+        
+        name: "紫颂果",
+        icon: "",
+        locations: [
+            {
+                name: "紫颂果农场",
+                x: -163,
+                y: 64,
+                z: -364,
+                dimension: "end",
+            
+            },
+           
           
           
         ]
