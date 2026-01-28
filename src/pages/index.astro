@@ -5,16 +5,9 @@ import Dashboard from "../components/Dashboard";
 import OrganizationSchema from "../components/schema/OrganizationSchema.astro";
 import ItemListSchema from "../components/schema/ItemListSchema.astro";
 import data from "../data/tools.json";
-
-async function loadCategoryData(category: string, file: string) {
-    try {
-        const module = await import(`../data/${file}`);
-        return module.default;
-    } catch (error) {
-        console.error(`Failed to load category data for ${category}:`, error);
-        return [];
-    }
-}
+import overworldData from "../data/overworld.json";
+import endData from "../data/end.json";
+import netherData from "../data/nether.json";
 
 // Load all tools from all categories
 const allTools = [];
@@ -23,9 +16,12 @@ for (const category of data.tools) {
         continue;
     } else if (category.content) {
         allTools.push(...category.content);
-    } else if (category.file) {
-        const tools = await loadCategoryData(category.category, category.file);
-        allTools.push(...tools);
+    } else if (category.file === 'overworld.json') {
+        allTools.push(...overworldData);
+    } else if (category.file === 'end.json') {
+        allTools.push(...endData);
+    } else if (category.file === 'nether.json') {
+        allTools.push(...netherData);
     }
 }
 ---
