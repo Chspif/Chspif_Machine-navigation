@@ -4,6 +4,9 @@ import Card from './Card';
 import EmptyState, { SearchIcon } from './EmptyState';
 import './CardsContainer.css';
 import data from '../data/tools.json';
+import overworldData from '../data/overworld.json';
+import endData from '../data/end.json';
+import netherData from '../data/nether.json';
 import type { Tool, Category } from '../types';
 import { toolComparators, seededShuffle, type SortKey } from '../utils/sorting';
 
@@ -33,15 +36,11 @@ interface CardsContainerProps {
     searchQuery?: string;
 }
 
-async function loadCategoryData(category: string, file: string) {
-    try {
-        const module = await import(`../data/${file}`);
-        return module.default;
-    } catch (error) {
-        console.error(`Failed to load category data for ${category}:`, error);
-        return [];
-    }
-}
+const categoryDataMap: Record<string, any[]> = {
+    'overworld.json': overworldData,
+    'end.json': endData,
+    'nether.json': netherData
+};
 
 export default function CardsContainer({
     filter,
@@ -55,7 +54,7 @@ export default function CardsContainer({
     const loaderRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        const loadAllData = async () => {
+        const loadAllData = () => {
             const categories = data.tools as Category[];
             const loadedData: ToolWithCategory[] = [];
 
@@ -63,7 +62,7 @@ export default function CardsContainer({
                 if (category.source === 'auto') {
                     continue;
                 } else if (category.file) {
-                    const tools = await loadCategoryData(category.category, category.file);
+                    const tools = categoryDataMap[category.file] || [];
                     tools.forEach((tool: any) => {
                         loadedData.push({
                             ...tool,

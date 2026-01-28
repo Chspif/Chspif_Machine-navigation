@@ -1,18 +1,17 @@
 import { navigate } from 'astro:transitions/client';
 import { useState, useEffect, useRef, useMemo } from 'react';
 import data from '../data/tools.json';
+import overworldData from '../data/overworld.json';
+import endData from '../data/end.json';
+import netherData from '../data/nether.json';
 import './CategoryNavItem.css';
 import type { Category } from '../types';
 
-async function loadCategoryData(category: string, file: string) {
-    try {
-        const module = await import(`../data/${file}`);
-        return module.default;
-    } catch (error) {
-        console.error(`Failed to load category data for ${category}:`, error);
-        return [];
-    }
-}
+const categoryDataMap: Record<string, any[]> = {
+    'overworld.json': overworldData,
+    'end.json': endData,
+    'nether.json': netherData
+};
 
 interface CategoryNavItemProps {
     title: string;
@@ -39,8 +38,8 @@ export default function CategoryNavItem({
     };
 
     useEffect(() => {
-        const loadCount = async () => {
-            if (category === 'all') {
+        const loadCount = () => {
+            if (category === 'all' || category === 'all-worlds') {
                 const categories = data.tools as Category[];
                 let total = 0;
                 for (const item of categories) {
@@ -50,7 +49,7 @@ export default function CategoryNavItem({
                     if (item.content) {
                         total += item.content.length;
                     } else if (item.file) {
-                        const tools = await loadCategoryData(item.category, item.file);
+                        const tools = categoryDataMap[item.file] || [];
                         total += tools.length;
                     }
                 }
@@ -60,7 +59,7 @@ export default function CategoryNavItem({
                 if (cat?.content) {
                     setCategoryCount(cat.content.length);
                 } else if (cat?.file) {
-                    const tools = await loadCategoryData(category, cat.file);
+                    const tools = categoryDataMap[cat.file] || [];
                     setCategoryCount(tools.length);
                 } else {
                     setCategoryCount(0);
