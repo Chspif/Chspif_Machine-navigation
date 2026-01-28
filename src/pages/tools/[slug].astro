@@ -3,8 +3,6 @@ export async function getStaticPaths() {
     return [];
 }
 
-export const prerender = false;
-
 const { slug } = Astro.params;
 
 return Astro.redirect('/');
