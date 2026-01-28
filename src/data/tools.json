@@ -1,0 +1,25 @@
+{
+  "tools": [
+    {
+      "title": "所有世界",
+      "category": "all-worlds",
+      "source": "auto",
+      "content": []
+    },
+    {
+      "title": "主世界",
+      "category": "overworld",
+      "file": "overworld.json"
+    },
+    {
+      "title": "末地",
+      "category": "end",
+      "file": "end.json"
+    },
+    {
+      "title": "地狱",
+      "category": "nether",
+      "file": "nether.json"
+    }
+  ]
+}
