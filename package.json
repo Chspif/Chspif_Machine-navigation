@@ -4,17 +4,6 @@
   "description": "chspif",
   "type": "module",
   "private": false,
-  "main": "src/data/tools.json",
-  "files": [
-    "src/data/tools.json",
-    "src/data/overworld.json",
-    "src/data/end.json",
-    "src/data/nether.json"
-  ],
-  "exports": {
-    ".": "./src/data/tools.json",
-    "./tools": "./src/data/tools.json"
-  },
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
