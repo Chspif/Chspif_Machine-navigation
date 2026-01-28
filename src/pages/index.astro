@@ -6,8 +6,28 @@ import OrganizationSchema from "../components/schema/OrganizationSchema.astro";
 import ItemListSchema from "../components/schema/ItemListSchema.astro";
 import data from "../data/tools.json";
 
-// Flatten all tools for the homepage ItemList
-const allTools = data.tools.flatMap((category: any) => category.content);
+async function loadCategoryData(category: string, file: string) {
+    try {
+        const module = await import(`../data/${file}`);
+        return module.default;
+    } catch (error) {
+        console.error(`Failed to load category data for ${category}:`, error);
+        return [];
+    }
+}
+
+// Load all tools from all categories
+const allTools = [];
+for (const category of data.tools) {
+    if (category.source === 'auto') {
+        continue;
+    } else if (category.content) {
+        allTools.push(...category.content);
+    } else if (category.file) {
+        const tools = await loadCategoryData(category.category, category.file);
+        allTools.push(...tools);
+    }
+}
 ---
 
 <Layout
@@ -17,8 +37,8 @@ const allTools = data.tools.flatMap((category: any) => category.content);
   showSearch={true}
 >
   <OrganizationSchema />
-  <ItemListSchema items={allTools} listName="AI Tools Directory - All Tools" />
+  <ItemListSchema items={allTools} listName="机器地图 - 所有物品" />
   <main id="main-content">
-    <Dashboard client:load category="all" transition:persist />
+    <Dashboard client:load category="all-worlds" transition:persist />
   </main>
 </Layout>
